@@ -9,19 +9,34 @@
     <title>Login page
 
     </title>
+    <script type="text/javascript">
+        function validateform() {
+            var name = document.myform.name.value;
+            var password = document.myform.password.value;
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+
+            }
+            else if (password.length < 6) {
+                alert("Password must be atleast 6 characters long");
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div class="loginbox">
         <img src="images/default.jpg" alt="person" class="avatar" />
         <h1>Login here</h1>
-        <form>
+        <form name="myform" method="post" action="Text.html" onsubmit="return validateform()">
             <p>Username</p>
-            <input type="text" placeholder="Enter your username">
+            <input id="name" name="name" type="text" placeholder="Enter your username">
             <p>Password</p>
-            <input type="password" placeholder="Enter your password">
+            <input id="password" name="password" type="password" placeholder="Enter your password">
 
-            <input type="submit" name="" value="login">
+            <input type="submit" value="register">
             <a href="#">Lost Your Password</a><br>
             <a href="#">Don't have an account</a>
         </form>
